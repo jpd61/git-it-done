@@ -4,6 +4,15 @@ var repoContainerEl = document.querySelector("#repos-container");
 var repoSearchTerm = document.querySelector("#repo-search-term");
 var languageButtonsEl = document.querySelector("#language-buttons");
 
+// developer console message
+var consoleMessage = () => {
+    let consoleMessage = `
+    Developed by Joseph DeWoody
+    https://jpd61.github.io/work-day-scheduler/
+    `
+    console.log(consoleMessage);
+};
+
 var getUserRepos = function(user) {
     // format the github api url
     var apiUrl = "https://api.github.com/users/" + user + "/repos";
@@ -32,7 +41,7 @@ var formSubmitHandler = function(event) {
         getUserRepos(username);
         nameInputEl.value = "";
     } else {
-        SVGPathSegLinetoRel("Please enter a GitHub username");
+        alert("Please enter a GitHub username");
     }
 
     console.log(event);
@@ -108,6 +117,8 @@ var buttonClickHandler = function (event) {
 };
 
 userFormEl.addEventListener("submit", formSubmitHandler);
+
+consoleMessage();
 
 getUserRepos();
 
